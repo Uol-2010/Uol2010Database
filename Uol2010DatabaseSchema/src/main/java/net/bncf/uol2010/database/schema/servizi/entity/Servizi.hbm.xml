@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.Servizi"
+		table="servizi">
+		<id name="id" type="java.lang.String">
+			<column name="ID_SERVIZI" />
+			<generator class="assigned" />
+		</id>
+		<property name="descrizione" type="java.lang.String">
+			<column name="DESCRIZIONE" />
+		</property>
+		<property name="maxMovimenti" type="java.lang.Integer">
+			<column name="MAXMOVIMENTI" />
+		</property>
+		<property name="durataMovimenti" type="java.lang.Integer">
+			<column name="DURATAMOVIMENTI" />
+		</property>
+		<property name="durataDeposito" type="java.lang.Integer">
+			<column name="DURATADEPOSITO" />
+		</property>
+		<property name="maxDepositi" type="java.lang.Integer">
+			<column name="MAXDEPOSITI" />
+		</property>
+		<property name="ridisponibilitaMateriale" type="java.lang.Integer">
+			<column name="RIDISPONIBILITAMATERIALE" />
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="EMAIL" />
+		</property>
+		<property name="dataIns" type="java.sql.Timestamp">
+			<column name="DATA_INS" />
+		</property>
+		<property name="dataMod" type="java.sql.Timestamp">
+			<column name="DATA_MOD" />
+		</property>
+		<property name="durataRinnovo1" type="java.lang.Integer">
+			<column name="DURATARINNOVO1" />
+		</property>
+		<property name="durataRinnovo2" type="java.lang.Integer">
+			<column name="DURATARINNOVO2" />
+		</property>
+		<property name="durataRinnovo3" type="java.lang.Integer">
+			<column name="DURATARINNOVO3" />
+		</property>
+		<property name="ggDepositi" type="java.lang.Integer">
+			<column name="GGDEPOSITI" />
+		</property>
+		<property name="emailChiamate" type="java.lang.Integer">
+			<column name="EMAILCHIAMATE" />
+		</property>
+		<property name="sollecito" type="java.lang.Integer">
+			<column name="SOLLECITO" />
+		</property>
+		<property name="ggSollecito" type="java.lang.Integer">
+			<column name="GGSOLLECITO" />
+		</property>
+	</class>
+</hibernate-mapping>

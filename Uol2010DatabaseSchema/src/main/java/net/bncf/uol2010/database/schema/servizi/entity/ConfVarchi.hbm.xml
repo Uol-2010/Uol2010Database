@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.ConfVarchi"
+		table="confvarchi">
+		<id name="id" type="java.lang.Integer">
+			<column name="ID_CONFVARCHI" />
+			<generator class="assigned" />
+		</id>
+		<property name="descr" type="java.lang.String">
+			<column name="DESCR" />
+		</property>
+		<property name="idVarco" type="java.lang.String">
+			<column name="ID_VARCO" />
+		</property>
+		<property name="idLettore" type="java.lang.String">
+			<column name="ID_LETTORE" />
+		</property>
+		<property name="flgUtPre" type="java.lang.Integer">
+			<column name="FLG_UTPRE" />
+		</property>
+		<property name="flgTeSca" type="java.lang.Integer">
+			<column name="FLG_TESCA" />
+		</property>
+		<property name="flgTeSos" type="java.lang.Integer">
+			<column name="FLG_TESOS" />
+		</property>
+		<property name="flgUtNonPre" type="java.lang.Integer">
+			<column name="FLG_UTNONPRE" />
+		</property>
+		<property name="flgUtPres" type="java.lang.Integer">
+			<column name="FLG_UTPRES" />
+		</property>
+		<property name="flgLibPre" type="java.lang.Integer">
+			<column name="FLG_LIBPRE" />
+		</property>
+		<property name="listaServizi" type="java.lang.String">
+			<column name="LISTASERVIZI" />
+		</property>
+		<property name="msgUtPre" type="java.lang.String">
+			<column name="MSG_UTPRE" />
+		</property>
+		<property name="msgTeSca" type="java.lang.String">
+			<column name="MSG_TESCA" />
+		</property>
+		<property name="msgTeSos" type="java.lang.String">
+			<column name="MSG_TESOS" />
+		</property>
+		<property name="msgUtNonPre" type="java.lang.String">
+			<column name="MSG_UTNONPRE" />
+		</property>
+		<property name="msgUtPres" type="java.lang.String">
+			<column name="MSG_UTPRES" />
+		</property>
+		<property name="msgLibPre" type="java.lang.String">
+			<column name="MSG_LIBPRE" />
+		</property>
+		<property name="tipoVarco" type="java.lang.String">
+			<column name="TIPOVARCO" />
+		</property>
+	</class>
+</hibernate-mapping>

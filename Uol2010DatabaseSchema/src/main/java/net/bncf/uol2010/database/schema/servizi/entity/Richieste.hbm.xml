@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.Richieste"
+		table="richieste">
+		<id name="id" type="java.lang.Integer">
+			<column name="ID_RICHIESTE" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="idUtente"
+			class="net.bncf.uol2010.database.schema.servizi.entity.Utente"
+			fetch="join">
+			<column name="ID_UTENTE" />
+		</many-to-one>
+		<many-to-one name="idStatoMovimenti"
+			class="net.bncf.uol2010.database.schema.servizi.entity.StatoMovimento"
+			fetch="join">
+			<column name="ID_STATOMOVIMENTI" />
+		</many-to-one>
+		<many-to-one name="idServizi"
+			class="net.bncf.uol2010.database.schema.servizi.entity.Servizi"
+			fetch="join">
+			<column name="ID_SERVIZI" />
+		</many-to-one>
+		<property name="progIter" type="java.lang.Integer">
+			<column name="PROG_ITER" />
+		</property>
+		<many-to-one name="idFruibilita"
+			class="net.bncf.uol2010.database.schema.servizi.entity.Fruibilita"
+			fetch="join">
+			<column name="ID_FRUIBILITA" />
+		</many-to-one>
+		<property name="dataIns" type="java.sql.Timestamp">
+			<column name="DATA_INS" />
+		</property>
+		<property name="dataMod" type="java.sql.Timestamp">
+			<column name="DATA_MOD" />
+		</property>
+		<property name="bid" type="java.lang.String">
+			<column name="BID" />
+		</property>
+		<property name="autore" type="java.lang.String">
+			<column name="AUTORE" />
+		</property>
+		<property name="titolo" type="java.lang.String">
+			<column name="TITOLO" />
+		</property>
+		<property name="pubblicazione" type="java.lang.String">
+			<column name="PUBBLICAZIONE" />
+		</property>
+		<property name="inventario" type="java.lang.String">
+			<column name="INVENTARIO" />
+		</property>
+		<property name="precInv1" type="java.lang.String">
+			<column name="PREC_INV1" />
+		</property>
+		<property name="precInv2" type="java.lang.String">
+			<column name="PREC_INV2" />
+		</property>
+		<property name="segnatura" type="java.lang.String">
+			<column name="SEGNATURA" />
+		</property>
+		<property name="segnaturaKey" type="java.lang.String">
+			<column name="SEGNATURA_KEY" />
+		</property>
+		<property name="annoPeriodico" type="java.lang.Integer">
+			<column name="ANNO_PERIODICO" />
+		</property>
+		<property name="fascicoli" type="java.lang.String">
+			<column name="FASCICOLI" />
+		</property>
+		<property name="dataIniPrev" type="java.sql.Timestamp">
+			<column name="DATA_INI_PREV" />
+		</property>
+		<property name="dataFinPrev" type="java.sql.Timestamp">
+			<column name="DATA_FIN_PREV" />
+		</property>
+		<property name="dataIniEff" type="java.sql.Timestamp">
+			<column name="DATA_INI_EFF" />
+		</property>
+		<property name="dataFinEff" type="java.sql.Timestamp">
+			<column name="DATA_FIN_EFF" />
+		</property>
+		<property name="noteUte" type="java.lang.String">
+			<column name="NOTE_UTE" />
+		</property>
+		<property name="noteBib" type="java.lang.String">
+			<column name="NOTE_BIB" />
+		</property>
+		<property name="notificaStatoRichiesta" type="java.lang.Boolean">
+			<column name="NOTIFICASTATORICHIESTA" />
+		</property>
+		<property name="emailStatoRichiesta" type="java.lang.Boolean">
+			<column name="EMAILSTATORICHIESTA" />
+		</property>
+		<property name="numRinnovi" type="java.lang.Integer">
+			<column name="NUM_RINNOVI" />
+		</property>
+		<property name="indirizzoIp" type="java.lang.String">
+			<column name="INDIRIZZOIP" />
+		</property>
+		<property name="volume" type="java.lang.String">
+			<column name="VOLUME" />
+		</property>
+	</class>
+</hibernate-mapping>

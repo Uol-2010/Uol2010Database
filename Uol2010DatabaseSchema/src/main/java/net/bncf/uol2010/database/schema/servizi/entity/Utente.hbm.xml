@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.Utente"
+		table="utente">
+		<id name="id" type="java.lang.String">
+			<column name="ID_UTENTE" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="idAutorizzazioniUtente"
+			class="net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniUte"
+			fetch="join">
+			<column name="ID_AUTORIZZAZIONIUTENTE" />
+		</many-to-one>
+		<many-to-one name="idUtenteProfessione"
+			class="net.bncf.uol2010.database.schema.servizi.entity.UtenteProfessione"
+			fetch="join">
+			<column name="ID_UTENTEPROFESSIONE" />
+		</many-to-one>
+		<many-to-one name="idUtenteProvenienza"
+			class="net.bncf.uol2010.database.schema.servizi.entity.UtenteProvenienza"
+			fetch="join">
+			<column name="ID_UTENTEPROVENIENZA" />
+		</many-to-one>
+		<many-to-one name="idUtenteCittadinanza"
+			class="net.bncf.uol2010.database.schema.servizi.entity.UtenteCittadinanza"
+			fetch="join">
+			<column name="ID_UTENTECITTADINANZA" />
+		</many-to-one>
+		<many-to-one name="idUtenteTipoDocumento"
+			class="net.bncf.uol2010.database.schema.servizi.entity.UtenteTipoDocumento"
+			fetch="join">
+			<column name="ID_UTENTETIPODOCUMENTO" />
+		</many-to-one>
+		<property name="password" type="java.lang.String">
+			<column name="PASSWORD" />
+		</property>
+		<property name="dataIns" type="java.sql.Timestamp">
+			<column name="DATAINS" />
+		</property>
+		<property name="dataMod" type="java.sql.Timestamp">
+			<column name="DATAMOD" />
+		</property>
+		<property name="cognome" type="java.lang.String">
+			<column name="COGNOME" />
+		</property>
+		<property name="nome" type="java.lang.String">
+			<column name="NOME" />
+		</property>
+		<property name="sesso" type="java.lang.String">
+			<column name="SESSO" />
+		</property>
+		<property name="residenzaIndirizzo" type="java.lang.String">
+			<column name="RESIDENZAINDIRIZZO" />
+		</property>
+		<property name="residenzaCitta" type="java.lang.String">
+			<column name="RESIDENZACITTA" />
+		</property>
+		<property name="residenzaCap" type="java.lang.String">
+			<column name="RESIDENZACAP" />
+		</property>
+		<property name="domicilioIndirizzo" type="java.lang.String">
+			<column name="DOMICILIOINDIRIZZO" />
+		</property>
+		<property name="domicilioCitta" type="java.lang.String">
+			<column name="DOMICILIOCITTA" />
+		</property>
+		<property name="domicilioCap" type="java.lang.String">
+			<column name="DOMICILIOCAP" />
+		</property>
+		<property name="telefono" type="java.lang.String">
+			<column name="TELEFONO" />
+		</property>
+		<property name="cellulare" type="java.lang.String">
+			<column name="CELLULARE" />
+		</property>
+		<property name="luogoNascita" type="java.lang.String">
+			<column name="LUOGONASCITA" />
+		</property>
+		<property name="dataNascita" type="java.sql.Date">
+			<column name="DATANASCITA" />
+		</property>
+		<property name="numeroDocumento" type="java.lang.String">
+			<column name="NUMERODOCUMENTO" />
+		</property>
+		<property name="autoritaRilascio" type="java.lang.String">
+			<column name="AUTORITARILASCIO" />
+		</property>
+		<property name="codiceFiscale" type="java.lang.String">
+			<column name="CODICEFISCALE" />
+		</property>
+		<property name="note" type="java.lang.String">
+			<column name="NOTE" />
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="EMAIL" />
+		</property>
+		<property name="cognomeKey" type="java.lang.String">
+			<column name="COGNOME_KEY" />
+		</property>
+		<property name="nomeKey" type="java.lang.String">
+			<column name="NOME_KEY" />
+		</property>
+		<property name="limiteTraffico" type="java.lang.Integer">
+			<column name="LIMITETRAFFICO" />
+		</property>
+	</class>
+</hibernate-mapping>
