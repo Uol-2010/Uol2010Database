@@ -13,4 +13,20 @@
 	<modules>
 		<module>Uol2010DatabaseSchema</module>
 	</modules>
+        <distributionManagement>
+                <repository>
+                        <id>mvn-bncf</id>
+                        <name>Maven BNCF-releases</name>
+                        <url>http://maven.bncf.firenze.sbn.it/artifactory/libs-release-local</url>
+                </repository>
+        </distributionManagement>
+        <repositories>
+                <repository>
+                        <id>bncf</id>
+                        <url>http://maven.bncf.firenze.sbn.it/artifactory/libs-release</url>
+                        <snapshots>
+                                <enabled>false</enabled>
+                        </snapshots>
+                </repository>
+        </repositories>
 </project>

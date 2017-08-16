@@ -92,7 +92,7 @@
 		<property name="notificaStatoRichiesta" type="java.lang.Boolean">
 			<column name="NOTIFICASTATORICHIESTA" />
 		</property>
-		<property name="emailStatoRichiesta" type="java.lang.Boolean">
+		<property name="emailStatoRichiesta" type="java.lang.String">
 			<column name="EMAILSTATORICHIESTA" />
 		</property>
 		<property name="numRinnovi" type="java.lang.Integer">

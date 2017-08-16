@@ -21,7 +21,7 @@ public class AutUteServizi implements Serializable {
 
 	private Servizi idServizi;
 
-	private Boolean rinnovoAutomatico;
+	private Integer rinnovoAutomatico;
 
 	/**
 	 * 
@@ -60,14 +60,14 @@ public class AutUteServizi implements Serializable {
 	/**
 	 * @return the rinnovoAutomatico
 	 */
-	public Boolean getRinnovoAutomatico() {
+	public Integer getRinnovoAutomatico() {
 		return rinnovoAutomatico;
 	}
 
 	/**
 	 * @param rinnovoAutomatico the rinnovoAutomatico to set
 	 */
-	public void setRinnovoAutomatico(Boolean rinnovoAutomatico) {
+	public void setRinnovoAutomatico(Integer rinnovoAutomatico) {
 		this.rinnovoAutomatico = rinnovoAutomatico;
 	}
 

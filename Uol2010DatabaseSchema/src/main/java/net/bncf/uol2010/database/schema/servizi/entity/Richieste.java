@@ -76,7 +76,7 @@ public class Richieste implements Serializable {
 
 	private Boolean notificaStatoRichiesta;
 
-	private Boolean emailStatoRichiesta;
+	private String emailStatoRichiesta;
 
 	private Integer numRinnovi;
 
@@ -485,14 +485,14 @@ public class Richieste implements Serializable {
 	/**
 	 * @return the emailStatoRichiesta
 	 */
-	public Boolean getEmailStatoRichiesta() {
+	public String getEmailStatoRichiesta() {
 		return emailStatoRichiesta;
 	}
 
 	/**
 	 * @param emailStatoRichiesta the emailStatoRichiesta to set
 	 */
-	public void setEmailStatoRichiesta(Boolean emailStatoRichiesta) {
+	public void setEmailStatoRichiesta(String emailStatoRichiesta) {
 		this.emailStatoRichiesta = emailStatoRichiesta;
 	}
 

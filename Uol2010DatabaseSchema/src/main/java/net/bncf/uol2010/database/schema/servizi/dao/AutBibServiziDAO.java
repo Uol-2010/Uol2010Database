@@ -3,8 +3,6 @@
  */
 package net.bncf.uol2010.database.schema.servizi.dao;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -15,50 +13,37 @@ import org.hibernate.criterion.Restrictions;
 
 import mx.randalf.hibernate.GenericHibernateDAO;
 import mx.randalf.hibernate.exception.HibernateUtilException;
-import net.bncf.uol2010.database.schema.servizi.entity.Autorizzazione;
+import net.bncf.uol2010.database.schema.servizi.entity.AutBibServizi;
+import net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniBib;
 import net.bncf.uol2010.database.schema.servizi.entity.Servizi;
-import net.bncf.uol2010.database.schema.servizi.entity.Utente;
 
 /**
  * @author massi
  *
  */
-public class AutorizzazioneDAO extends GenericHibernateDAO<Autorizzazione, Integer> {
+public class AutBibServiziDAO extends GenericHibernateDAO<AutBibServizi, String> {
 
-	private Logger log = Logger.getLogger(AutorizzazioneDAO.class);
+	private Logger  log = Logger.getLogger(AutBibServiziDAO.class);
 
 	/**
 	 * 
 	 */
-	public AutorizzazioneDAO() {
-	}
-
-	public List<Autorizzazione> find(Utente idUtente, GregorianCalendar data, String cancellato, List<Order> orders)
-			throws HibernateException, HibernateUtilException {
-		return find(idUtente, null, data, cancellato, orders);
+	public AutBibServiziDAO() {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Autorizzazione> find(Utente idUtente, Servizi idServizi, GregorianCalendar data, String cancellato, List<Order> orders)
-			throws HibernateException, HibernateUtilException {
+	public List<AutBibServizi> find(AutorizzazioniBib idAutorizzazioniBib, Servizi idServizi, List<Order> orders) throws HibernateException, HibernateUtilException {
 		Criteria criteria = null;
-		List<Autorizzazione> result = null;
+		List<AutBibServizi> result = null;
 
 		try {
 			beginTransaction();
 			criteria = this.createCriteria();
-			if (idUtente != null) {
-				criteria.add(Restrictions.eq("idUtente", idUtente));
+			if (idAutorizzazioniBib != null) {
+				criteria.add(Restrictions.eq("idAutorizzazioniBib", idAutorizzazioniBib));
 			}
 			if (idServizi != null) {
 				criteria.add(Restrictions.eq("idServizi", idServizi));
-			}
-			if (data != null) {
-				criteria.add(Restrictions.and(Restrictions.ge("data", new Date(data.getTimeInMillis())),
-						Restrictions.le("data", new Date(data.getTimeInMillis()))));
-			}
-			if (cancellato != null) {
-				criteria.add(Restrictions.eq("cancellato", cancellato));
 			}
 			if (orders != null) {
 				for (Order order : orders) {

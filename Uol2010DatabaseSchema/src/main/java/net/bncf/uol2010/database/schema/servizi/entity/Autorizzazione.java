@@ -34,6 +34,8 @@ public class Autorizzazione implements Serializable {
 
 	private String cancellato;
 
+	private Date data;
+
 	/**
 	 * 
 	 */
@@ -136,6 +138,20 @@ public class Autorizzazione implements Serializable {
 	 */
 	public void setCancellato(String cancellato) {
 		this.cancellato = cancellato;
+	}
+
+	/**
+	 * @return the data
+	 */
+	public Date getData() {
+		return data;
+	}
+
+	/**
+	 * @param data the data to set
+	 */
+	public void setData(Date data) {
+		this.data = data;
 	}
 
 }

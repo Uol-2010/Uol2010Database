@@ -12,6 +12,7 @@ import org.hibernate.criterion.Restrictions;
 
 import mx.randalf.hibernate.GenericHibernateDAO;
 import mx.randalf.hibernate.exception.HibernateUtilException;
+import net.bncf.uol2010.database.schema.servizi.entity.Servizi;
 import net.bncf.uol2010.database.schema.servizi.entity.Sospensioni;
 import net.bncf.uol2010.database.schema.servizi.entity.Utente;
 
@@ -22,8 +23,13 @@ public class SospensioniDAO extends GenericHibernateDAO<Sospensioni, Integer> {
 	public SospensioniDAO() {
 	}
 
-	@SuppressWarnings("unchecked")
 	public List<Sospensioni> find(Utente idUtente, GregorianCalendar data, String cancellato, List<Order> orders)
+			throws HibernateException, HibernateUtilException {
+		return find(idUtente, null, data, cancellato, orders);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Sospensioni> find(Utente idUtente, Servizi idServizi, GregorianCalendar data, String cancellato, List<Order> orders)
 			throws HibernateException, HibernateUtilException {
 		Criteria criteria = null;
 		List<Sospensioni> result = null;
@@ -33,6 +39,11 @@ public class SospensioniDAO extends GenericHibernateDAO<Sospensioni, Integer> {
 			criteria = this.createCriteria();
 			if (idUtente != null) {
 				criteria.add(Restrictions.eq("idUtente", idUtente));
+			}
+			if (idServizi != null) {
+				criteria.add(Restrictions.eq("idServizi", idServizi));
+			} else {
+				criteria.add(Restrictions.isNull("idServizi"));
 			}
 			if (data != null) {
 				criteria.add(Restrictions.and(Restrictions.ge("dataIni", new Date(data.getTimeInMillis())),

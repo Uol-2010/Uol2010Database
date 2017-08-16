@@ -28,7 +28,34 @@
 		<dependency>
 			<groupId>mx.randalf.hibernate</groupId>
 			<artifactId>RandalfHibernate</artifactId>
-			<version>1.0.11</version>
+			<version>1.0.13</version>
+		</dependency>
+		<dependency>
+			<groupId>mx.randalf.converter.text</groupId>
+			<artifactId>RandalfConverterText</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
 		</dependency>
 	</dependencies>
+	<version>1.0.2</version>
+	<build>
+		<resources>
+			<resource>
+				<directory>${basedir}/src/main/java</directory>
+				<includes>
+					<include>**/*.hbm.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+				<includes>
+					<include>**/*.gwt.xml</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
 </project>
