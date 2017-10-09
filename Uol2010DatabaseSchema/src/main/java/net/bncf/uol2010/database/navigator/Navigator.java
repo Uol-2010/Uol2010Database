@@ -103,8 +103,12 @@ public class Navigator<T, ID extends Serializable> extends GenericHibernateDAO<T
 
 	public Navigator(Integer pagIniVisual, Integer pagAttVisual) {
 		super();
-		this.pagIniVisual = pagIniVisual;
-		this.pagAttVisual = pagAttVisual;
+		if (pagIniVisual != null){
+			this.pagIniVisual = pagIniVisual;
+		}
+		if (pagAttVisual != null){
+			this.pagAttVisual = pagAttVisual;
+		}
 	}
 
 	/**

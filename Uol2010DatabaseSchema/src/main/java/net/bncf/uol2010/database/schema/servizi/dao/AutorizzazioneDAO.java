@@ -3,7 +3,7 @@
  */
 package net.bncf.uol2010.database.schema.servizi.dao;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -54,8 +54,8 @@ public class AutorizzazioneDAO extends GenericHibernateDAO<Autorizzazione, Integ
 				criteria.add(Restrictions.eq("idServizi", idServizi));
 			}
 			if (data != null) {
-				criteria.add(Restrictions.and(Restrictions.ge("data", new Date(data.getTimeInMillis())),
-						Restrictions.le("data", new Date(data.getTimeInMillis()))));
+				criteria.add(Restrictions.and(Restrictions.ge("dataIni", new Date(data.getTimeInMillis())),
+						Restrictions.le("dataFin", new Date(data.getTimeInMillis()))));
 			}
 			if (cancellato != null) {
 				criteria.add(Restrictions.eq("cancellato", cancellato));
@@ -80,6 +80,42 @@ public class AutorizzazioneDAO extends GenericHibernateDAO<Autorizzazione, Integ
 			throw new HibernateUtilException(e.getMessage(), e);
 		}
 		return result;
+	}
+
+	public void write(Integer idAutorizzazione, Utente idUtente,
+			Servizi idServizi, Date dataIni, Date dataFin, String note, String cancellato)
+			throws HibernateException, HibernateUtilException {
+		Autorizzazione autorizzazione = null;
+		ContatoriDAO contatoriDAO = null;
+
+		try {
+			if (idAutorizzazione == null) {
+				autorizzazione = new Autorizzazione();
+				contatoriDAO = new ContatoriDAO();
+				autorizzazione.setId(contatoriDAO.genId("Autorizzazione"));
+			} else {
+				autorizzazione = this.findById(idAutorizzazione);
+			}
+
+			autorizzazione.setIdUtente(idUtente);
+			autorizzazione.setIdServizi(idServizi);
+			autorizzazione.setDataIni(dataIni);
+			autorizzazione.setDataFin(dataFin);
+			if (note != null){
+				autorizzazione.setNote(note);
+			}
+			autorizzazione.setCancellato(cancellato);
+
+			if (idAutorizzazione == null) {
+				this.save(autorizzazione);
+			} else {
+				this.update(autorizzazione);
+			}
+		} catch (HibernateException e) {
+			throw e;
+		} catch (HibernateUtilException e) {
+			throw e;
+		}
 	}
 
 }

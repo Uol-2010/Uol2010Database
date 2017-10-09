@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.AutBibAutUte"
+		table="autbib_autute">
+		<composite-id>
+			<key-many-to-one name="idAutorizzazioniBib"
+				class="net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniBib"
+				column="ID_AUTORIZZAZIONIBIB" />
+			<key-many-to-one name="idAutorizzazioniUte"
+				class="net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniUte"
+				column="ID_AUTORIZZAZIONIUTENTE" />
+		</composite-id>
+	</class>
+</hibernate-mapping>

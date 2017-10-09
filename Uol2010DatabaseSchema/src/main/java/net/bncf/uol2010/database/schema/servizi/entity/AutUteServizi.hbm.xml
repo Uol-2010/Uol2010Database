@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.AutUteServizi"
+		table="autute_servizi">
+		<composite-id>
+			<key-many-to-one name="idAutorizzazioniUtente"
+				class="net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniUte"
+				column="ID_AUTORIZZAZIONIUTENTE" />
+			<key-many-to-one name="idServizi"
+				class="net.bncf.uol2010.database.schema.servizi.entity.Servizi"
+				column="ID_SERVIZI" />
+		</composite-id>
+		<!-- 
+		<many-to-one name="idAutorizzazioniUtente"
+			class="net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniUte"
+			fetch="join">
+			<column name="ID_AUTORIZZAZIONIUTENTE" />
+		</many-to-one>
+		<many-to-one name="idServizi"
+			class="net.bncf.uol2010.database.schema.servizi.entity.Servizi"
+			fetch="join">
+			<column name="ID_SERVIZI" />
+		</many-to-one>
+		 -->
+				<property name="rinnovoAutomatico" type="java.lang.Boolean">
+			<column name="RINNOVOAUTOMATICO" />
+		</property>
+	</class>
+</hibernate-mapping>

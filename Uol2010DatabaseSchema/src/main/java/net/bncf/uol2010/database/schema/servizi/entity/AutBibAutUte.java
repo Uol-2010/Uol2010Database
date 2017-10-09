@@ -6,6 +6,7 @@ package net.bncf.uol2010.database.schema.servizi.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -17,8 +18,10 @@ import javax.persistence.Table;
 @Table(name="autbib_autute")
 public class AutBibAutUte implements Serializable {
 
+	@Id
 	private AutorizzazioniBib idAutorizzazioniBib;
 
+	@Id
 	private AutorizzazioniUte idAutorizzazioniUte;
 
 	/**

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.UtenteBib"
+		table="utentebib">
+		<id name="id" type="java.lang.Integer">
+			<column name="ID_UTENTEBIB" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="idAutorizzazioniBib"
+			class="net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniBib"
+			fetch="join">
+			<column name="ID_AUTORIZZAZIONIBIB" />
+		</many-to-one>
+		<property name="login" type="java.lang.String">
+			<column name="LOGIN" />
+		</property>
+		<property name="password" type="java.lang.String">
+			<column name="PASSWORD" />
+		</property>
+		<property name="cognome" type="java.lang.String">
+			<column name="COGNOME" />
+		</property>
+		<property name="nome" type="java.lang.String">
+			<column name="NOME" />
+		</property>
+		<property name="sesso" type="java.lang.String">
+			<column name="SESSO" />
+		</property>
+		<property name="indirizzoIP" type="java.lang.String">
+			<column name="INDIRIZZOIP" />
+		</property>
+	</class>
+</hibernate-mapping>

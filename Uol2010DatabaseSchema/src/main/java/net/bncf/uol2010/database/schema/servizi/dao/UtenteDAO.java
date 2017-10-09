@@ -6,7 +6,11 @@ import java.text.DecimalFormat;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 import mx.randalf.converter.text.ConvertText;
 import mx.randalf.hibernate.exception.HibernateUtilException;
@@ -20,6 +24,8 @@ import net.bncf.uol2010.database.schema.servizi.entity.UtenteTipoDocumento;
 
 public class UtenteDAO extends Navigator<Utente, String> {
 
+	private Logger log = Logger.getLogger(UtenteDAO.class);
+
 	public UtenteDAO() {
 		super(null, null);
 	}
@@ -28,8 +34,48 @@ public class UtenteDAO extends Navigator<Utente, String> {
 		super(pagIniVisual, pagAttVisual);
 	}
 
-	public List<Utente> find(String idUtente, String cognome, String nome) {
-		return null;
+	@SuppressWarnings("unchecked")
+	public List<Utente> find(String idUtente, String cognome, String nome,
+			List<Order> orders) throws HibernateException, HibernateUtilException {
+		Criteria criteria = null;
+		List<Utente> result = null;
+		DecimalFormat df7 = new DecimalFormat("0000000");
+
+		try {
+			beginTransaction();
+			criteria = this.createCriteria();
+			if (idUtente != null) {
+				idUtente = idUtente.toUpperCase().replace("CFU", "");
+				idUtente = idUtente.replace("CF", "");
+				idUtente = idUtente.trim();
+				criteria.add(Restrictions.eq("id", " CF" + df7.format(new Integer(idUtente))));
+			}
+			if (cognome != null) {
+				criteria.add(Restrictions.eq("cognome", cognome));
+			}
+			if (nome != null) {
+				criteria.add(Restrictions.eq("nome", nome));
+			}
+			paging(criteria);
+			if (orders != null) {
+				for (Order order : orders) {
+					criteria.addOrder(order);
+				}
+			}
+			result = criteria.list();
+			commitTransaction();
+		} catch (HibernateException e) {
+			rollbackTransaction();
+			throw e;
+		} catch (HibernateUtilException e) {
+			rollbackTransaction();
+			throw e;
+		} catch (Exception e) {
+			log.error(e.getMessage(), e);
+			rollbackTransaction();
+			throw new HibernateUtilException(e.getMessage(), e);
+		}
+		return result;
 	}
 
 	public Utente write(String idUtente, AutorizzazioniUte idAutorizzazioniUtente,

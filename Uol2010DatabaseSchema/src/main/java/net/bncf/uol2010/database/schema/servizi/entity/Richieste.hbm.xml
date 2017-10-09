@@ -68,7 +68,13 @@
 		<property name="annoPeriodico" type="java.lang.Integer">
 			<column name="ANNO_PERIODICO" />
 		</property>
-		<property name="fascicoli" type="java.lang.String">
+		<property name="natura" type="java.lang.String">
+			<column name="NATURA" />
+		</property>
+				<property name="annata" type="java.lang.Integer">
+			<column name="ANNATA" />
+		</property>
+				<property name="fascicoli" type="java.lang.String">
 			<column name="FASCICOLI" />
 		</property>
 		<property name="dataIniPrev" type="java.sql.Timestamp">
