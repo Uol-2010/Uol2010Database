@@ -13,41 +13,41 @@ import org.hibernate.criterion.Restrictions;
 
 import mx.randalf.hibernate.GenericHibernateDAO;
 import mx.randalf.hibernate.exception.HibernateUtilException;
-import net.bncf.uol2010.database.schema.servizi.entity.AutUteServizi;
-import net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniUte;
-import net.bncf.uol2010.database.schema.servizi.entity.Servizi;
+import net.bncf.uol2010.database.schema.servizi.entity.GruppoSegnature;
 
 /**
  * @author massi
  *
  */
-public class AutUteServiziDAO extends GenericHibernateDAO<AutUteServizi, String> {
+public class GruppoSegnatureDAO extends GenericHibernateDAO<GruppoSegnature, Integer> {
 
-	private Logger  log = Logger.getLogger(AutUteServiziDAO.class);
+	Logger log = Logger.getLogger(GruppoSegnatureDAO.class);
 
 	/**
 	 * 
 	 */
-	public AutUteServiziDAO() {
-	}
-
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, List<Order> orders) throws HibernateException, HibernateUtilException {
-		return find(idAutorizzazioniUtente, null, orders);
+	public GruppoSegnatureDAO() {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, Servizi idServizi, List<Order> orders) throws HibernateException, HibernateUtilException {
+	public List<GruppoSegnature> find(String natura, String segnatura, List<Order> orders)
+			throws HibernateException, HibernateUtilException {
 		Criteria criteria = null;
-		List<AutUteServizi> result = null;
+		List<GruppoSegnature> result = null;
 
 		try {
 			beginTransaction();
 			criteria = this.createCriteria();
-			if (idAutorizzazioniUtente != null) {
-				criteria.add(Restrictions.eq("idAutorizzazioniUtente", idAutorizzazioniUtente));
+			if (natura != null && 
+					!natura.trim().equals("")) {
+				criteria.add(Restrictions.eq("natura", natura.trim().toLowerCase()));
 			}
-			if (idServizi != null) {
-				criteria.add(Restrictions.eq("idServizi", idServizi));
+			if (segnatura != null) {
+				criteria.add(
+						Restrictions.and(
+								Restrictions.ge("segnaturaStartKey", segnatura),
+								Restrictions.le("segnaturaStopKey", segnatura)
+								));
 			}
 			if (orders != null) {
 				for (Order order : orders) {
@@ -70,5 +70,4 @@ public class AutUteServiziDAO extends GenericHibernateDAO<AutUteServizi, String>
 		}
 		return result;
 	}
-
 }

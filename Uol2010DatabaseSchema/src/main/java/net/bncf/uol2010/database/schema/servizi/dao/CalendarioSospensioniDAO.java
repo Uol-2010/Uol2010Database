@@ -13,41 +13,44 @@ import org.hibernate.criterion.Restrictions;
 
 import mx.randalf.hibernate.GenericHibernateDAO;
 import mx.randalf.hibernate.exception.HibernateUtilException;
-import net.bncf.uol2010.database.schema.servizi.entity.AutUteServizi;
-import net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniUte;
+import net.bncf.uol2010.database.schema.servizi.entity.CalendarioSospensioni;
 import net.bncf.uol2010.database.schema.servizi.entity.Servizi;
 
 /**
  * @author massi
  *
  */
-public class AutUteServiziDAO extends GenericHibernateDAO<AutUteServizi, String> {
+public class CalendarioSospensioniDAO extends GenericHibernateDAO<CalendarioSospensioni, String> {
 
-	private Logger  log = Logger.getLogger(AutUteServiziDAO.class);
+	private Logger  log = Logger.getLogger(CalendarioSospensioniDAO.class);
 
 	/**
 	 * 
 	 */
-	public AutUteServiziDAO() {
-	}
-
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, List<Order> orders) throws HibernateException, HibernateUtilException {
-		return find(idAutorizzazioniUtente, null, orders);
+	public CalendarioSospensioniDAO() {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, Servizi idServizi, List<Order> orders) throws HibernateException, HibernateUtilException {
+	public List<CalendarioSospensioni> find(Servizi idServizi, Integer giorno, 
+			Integer mese, List<Order> orders) throws HibernateException, HibernateUtilException {
 		Criteria criteria = null;
-		List<AutUteServizi> result = null;
+		List<CalendarioSospensioni> result = null;
 
 		try {
 			beginTransaction();
 			criteria = this.createCriteria();
-			if (idAutorizzazioniUtente != null) {
-				criteria.add(Restrictions.eq("idAutorizzazioniUtente", idAutorizzazioniUtente));
-			}
 			if (idServizi != null) {
 				criteria.add(Restrictions.eq("idServizi", idServizi));
+			}
+			if (giorno != null) {
+				criteria.add(
+						Restrictions.and(
+								Restrictions.ge("giornoInizio", giorno),
+								Restrictions.le("giornoFine", giorno)
+								));
+			}
+			if (mese != null) {
+				criteria.add(Restrictions.eq("mese", mese));
 			}
 			if (orders != null) {
 				for (Order order : orders) {

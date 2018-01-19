@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.CalendarioFestivita"
+		table="calendariofestivita">
+		<composite-id>
+		    <key-property name="giornoFestivita" type="java.lang.Integer">
+		        <column name="GIORNOFESTIVITA"></column>
+		    </key-property>
+		    <key-property name="meseFestivita" type="java.lang.Integer">
+		        <column name="MESEFESTIVITA"></column>
+		    </key-property>
+		</composite-id>
+		<property name="descrizione" type="java.lang.String">
+			<column name="DESCRIZIONE" />
+		</property>
+	</class>
+</hibernate-mapping>

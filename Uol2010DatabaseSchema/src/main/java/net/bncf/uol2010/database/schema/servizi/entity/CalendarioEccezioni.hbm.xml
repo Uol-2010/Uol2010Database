@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.CalendarioEccezioni"
+		table="calendarioeccezioni">
+		<composite-id>
+			<key-many-to-one name="idServizi"
+				class="net.bncf.uol2010.database.schema.servizi.entity.Servizi"
+				column="ID_SERVIZI" />
+		    <key-property name="giorno" type="java.sql.Date">
+		        <column name="GIORNO"></column>
+		    </key-property>
+		    <key-property name="orarioApertura" type="java.sql.Time">
+		        <column name="ORARIOAPERTURA"></column>
+		    </key-property>
+		    <key-property name="orarioChiusura" type="java.sql.Time">
+		        <column name="ORARIOCHIUSURA"></column>
+		    </key-property>
+		</composite-id>
+	</class>
+</hibernate-mapping>

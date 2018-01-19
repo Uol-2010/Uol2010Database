@@ -3,6 +3,8 @@
  */
 package net.bncf.uol2010.database.schema.servizi.dao;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -13,41 +15,37 @@ import org.hibernate.criterion.Restrictions;
 
 import mx.randalf.hibernate.GenericHibernateDAO;
 import mx.randalf.hibernate.exception.HibernateUtilException;
-import net.bncf.uol2010.database.schema.servizi.entity.AutUteServizi;
-import net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniUte;
-import net.bncf.uol2010.database.schema.servizi.entity.Servizi;
+import net.bncf.uol2010.database.schema.servizi.entity.SingolaSegnatura;
 
 /**
  * @author massi
  *
  */
-public class AutUteServiziDAO extends GenericHibernateDAO<AutUteServizi, String> {
+public class SingolaSegnaturaDAO extends GenericHibernateDAO<SingolaSegnatura, Integer> {
 
-	private Logger  log = Logger.getLogger(AutUteServiziDAO.class);
+	Logger log = Logger.getLogger(SingolaSegnaturaDAO.class);
 
 	/**
 	 * 
 	 */
-	public AutUteServiziDAO() {
-	}
-
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, List<Order> orders) throws HibernateException, HibernateUtilException {
-		return find(idAutorizzazioniUtente, null, orders);
+	public SingolaSegnaturaDAO() {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, Servizi idServizi, List<Order> orders) throws HibernateException, HibernateUtilException {
+	public List<SingolaSegnatura> find(GregorianCalendar data, String segnatura, List<Order> orders)
+			throws HibernateException, HibernateUtilException {
 		Criteria criteria = null;
-		List<AutUteServizi> result = null;
+		List<SingolaSegnatura> result = null;
 
 		try {
 			beginTransaction();
 			criteria = this.createCriteria();
-			if (idAutorizzazioniUtente != null) {
-				criteria.add(Restrictions.eq("idAutorizzazioniUtente", idAutorizzazioniUtente));
+			if (data != null) {
+				criteria.add(Restrictions.and(Restrictions.ge("dataIni", new Date(data.getTimeInMillis())),
+						Restrictions.le("dataFin", new Date(data.getTimeInMillis()))));
 			}
-			if (idServizi != null) {
-				criteria.add(Restrictions.eq("idServizi", idServizi));
+			if (segnatura != null) {
+				criteria.add(Restrictions.eq("singolaSegnaturaKey", segnatura));
 			}
 			if (orders != null) {
 				for (Order order : orders) {
@@ -70,5 +68,4 @@ public class AutUteServiziDAO extends GenericHibernateDAO<AutUteServizi, String>
 		}
 		return result;
 	}
-
 }

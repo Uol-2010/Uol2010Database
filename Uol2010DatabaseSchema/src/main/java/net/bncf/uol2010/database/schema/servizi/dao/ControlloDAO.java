@@ -13,41 +13,33 @@ import org.hibernate.criterion.Restrictions;
 
 import mx.randalf.hibernate.GenericHibernateDAO;
 import mx.randalf.hibernate.exception.HibernateUtilException;
-import net.bncf.uol2010.database.schema.servizi.entity.AutUteServizi;
-import net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniUte;
-import net.bncf.uol2010.database.schema.servizi.entity.Servizi;
+import net.bncf.uol2010.database.schema.servizi.entity.Controllo;
 
 /**
  * @author massi
  *
  */
-public class AutUteServiziDAO extends GenericHibernateDAO<AutUteServizi, String> {
+public class ControlloDAO extends GenericHibernateDAO<Controllo, Integer> {
 
-	private Logger  log = Logger.getLogger(AutUteServiziDAO.class);
+	Logger log = Logger.getLogger(ControlloDAO.class);
 
 	/**
 	 * 
 	 */
-	public AutUteServiziDAO() {
-	}
-
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, List<Order> orders) throws HibernateException, HibernateUtilException {
-		return find(idAutorizzazioniUtente, null, orders);
+	public ControlloDAO() {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, Servizi idServizi, List<Order> orders) throws HibernateException, HibernateUtilException {
+	public List<Controllo> find(String tipoControllo, List<Order> orders)
+			throws HibernateException, HibernateUtilException {
 		Criteria criteria = null;
-		List<AutUteServizi> result = null;
+		List<Controllo> result = null;
 
 		try {
 			beginTransaction();
 			criteria = this.createCriteria();
-			if (idAutorizzazioniUtente != null) {
-				criteria.add(Restrictions.eq("idAutorizzazioniUtente", idAutorizzazioniUtente));
-			}
-			if (idServizi != null) {
-				criteria.add(Restrictions.eq("idServizi", idServizi));
+			if (tipoControllo != null) {
+				criteria.add(Restrictions.eq("tipoControllo", tipoControllo));
 			}
 			if (orders != null) {
 				for (Order order : orders) {
@@ -70,5 +62,4 @@ public class AutUteServiziDAO extends GenericHibernateDAO<AutUteServizi, String>
 		}
 		return result;
 	}
-
 }

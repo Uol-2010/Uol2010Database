@@ -13,41 +13,36 @@ import org.hibernate.criterion.Restrictions;
 
 import mx.randalf.hibernate.GenericHibernateDAO;
 import mx.randalf.hibernate.exception.HibernateUtilException;
-import net.bncf.uol2010.database.schema.servizi.entity.AutUteServizi;
-import net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniUte;
-import net.bncf.uol2010.database.schema.servizi.entity.Servizi;
+import net.bncf.uol2010.database.schema.servizi.entity.CalendarioFestivita;
 
 /**
  * @author massi
  *
  */
-public class AutUteServiziDAO extends GenericHibernateDAO<AutUteServizi, String> {
+public class CalendarioFestivitaDAO extends GenericHibernateDAO<CalendarioFestivita, String> {
 
-	private Logger  log = Logger.getLogger(AutUteServiziDAO.class);
+	private Logger  log = Logger.getLogger(CalendarioFestivitaDAO.class);
 
 	/**
 	 * 
 	 */
-	public AutUteServiziDAO() {
-	}
-
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, List<Order> orders) throws HibernateException, HibernateUtilException {
-		return find(idAutorizzazioniUtente, null, orders);
+	public CalendarioFestivitaDAO() {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<AutUteServizi> find(AutorizzazioniUte idAutorizzazioniUtente, Servizi idServizi, List<Order> orders) throws HibernateException, HibernateUtilException {
+	public List<CalendarioFestivita> find(Integer giornoFestivita, 
+			Integer meseFestivita, List<Order> orders) throws HibernateException, HibernateUtilException {
 		Criteria criteria = null;
-		List<AutUteServizi> result = null;
+		List<CalendarioFestivita> result = null;
 
 		try {
 			beginTransaction();
 			criteria = this.createCriteria();
-			if (idAutorizzazioniUtente != null) {
-				criteria.add(Restrictions.eq("idAutorizzazioniUtente", idAutorizzazioniUtente));
+			if (giornoFestivita != null) {
+				criteria.add(Restrictions.eq("giornoFestivita", giornoFestivita));
 			}
-			if (idServizi != null) {
-				criteria.add(Restrictions.eq("idServizi", idServizi));
+			if (meseFestivita != null) {
+				criteria.add(Restrictions.eq("meseFestivita", meseFestivita));
 			}
 			if (orders != null) {
 				for (Order order : orders) {
