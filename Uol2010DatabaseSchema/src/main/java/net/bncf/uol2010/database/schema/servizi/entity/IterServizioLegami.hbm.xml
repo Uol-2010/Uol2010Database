@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1-feb-2018 10.58.08 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="net.bncf.uol2010.database.schema.servizi.entity.IterServizioLegami" table="ITERSERVIZIOLEGAMI">
+        <id name="idSevizi" type="net.bncf.uol2010.database.schema.servizi.entity.Servizi">
+            <column name="IDSEVIZI" />
+            <generator class="assigned" />
+        </id>
+        <property name="progIterPar" type="java.lang.Integer">
+            <column name="PROGITERPAR" />
+        </property>
+        <property name="progIterArr" type="java.lang.Integer">
+            <column name="PROGITERARR" />
+        </property>
+        <many-to-one name="idGestioneChiamate" class="net.bncf.uol2010.database.schema.servizi.entity.GestioneChiamate" fetch="join">
+            <column name="IDGESTIONECHIAMATE" />
+        </many-to-one>
+        <many-to-one name="idGestioneDeposito" class="net.bncf.uol2010.database.schema.servizi.entity.GestioneDeposito" fetch="join">
+            <column name="IDGESTIONEDEPOSITO" />
+        </many-to-one>
+        <property name="tipoServizio" type="java.lang.String">
+            <column name="TIPOSERVIZIO" />
+        </property>
+    </class>
+</hibernate-mapping>

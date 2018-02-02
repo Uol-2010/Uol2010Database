@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.CarrelloLibro"
+		table="carrellolibro">
+		<id name="id" type="java.lang.String">
+			<column name="ID_CARRELLOLIBRO" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="idCarrello"
+			class="net.bncf.uol2010.database.schema.servizi.entity.Carrello"
+			fetch="join">
+			<column name="ID_CARRELLO" />
+		</many-to-one>
+		<property name="barcode" type="java.lang.String">
+			<column name="BARCODE" />
+		</property>
+		<property name="bid" type="java.lang.String">
+			<column name="BID" />
+		</property>
+		<property name="autore" type="java.lang.String">
+			<column name="AUTORE" />
+		</property>
+		<property name="titolo" type="java.lang.String">
+			<column name="TITOLO" />
+		</property>
+		<property name="pubblicazione" type="java.lang.String">
+			<column name="PUBBLICAZIONE" />
+		</property>
+		<property name="descrizioneFisica" type="java.lang.String">
+			<column name="DESCRIZIONEFISICA" />
+		</property>
+		<property name="annoPeriodico" type="java.lang.Integer">
+			<column name="ANNOPERIODICO" />
+		</property>
+		<property name="collocazione" type="java.lang.String">
+			<column name="COLLOCAZIONE" />
+		</property>
+		<property name="invntario" type="java.lang.String">
+			<column name="INVENTARIO" />
+		</property>
+		<many-to-one name="idUtenteBib"
+			class="net.bncf.uol2010.database.schema.servizi.entity.UtenteBib"
+			fetch="join">
+			<column name="ID_UTENTEBIB" />
+		</many-to-one>
+		<property name="dataIns" type="java.sql.Timestamp">
+			<column name="DATA_INS" />
+		</property>
+		<many-to-one name="idUtenteBibRiconsegna"
+			class="net.bncf.uol2010.database.schema.servizi.entity.UtenteBib"
+			fetch="join">
+			<column name="ID_UTENTEBIB_RICONSEGNA" />
+		</many-to-one>
+		<property name="dataRiconsegna" type="java.sql.Timestamp">
+			<column name="DATA_RICONSEGNA" />
+		</property>
+		<property name="stato" type="java.lang.Integer">
+			<column name="STATO" />
+		</property>
+		<property name="dataBlocco" type="java.sql.Timestamp">
+			<column name="DATA_BLOCCO" />
+		</property>
+		<property name="dataSblocco" type="java.sql.Timestamp">
+			<column name="DATA_SBLOCCO" />
+		</property>
+		<many-to-one name="idRichiesta"
+			class="net.bncf.uol2010.database.schema.servizi.entity.Richieste"
+			fetch="join">
+			<column name="ID_RICHIESTA" />
+		</many-to-one>
+		<property name="numOpera" type="java.lang.Integer">
+			<column name="NUMOPERA" />
+		</property>
+	</class>
+</hibernate-mapping>

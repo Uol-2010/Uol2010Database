@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1-feb-2018 10.47.57 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+ <class
+  name="net.bncf.uol2010.database.schema.servizi.entity.GruppoSegnature" table="GRUPPOSEGNATURE">
+  <id name="id" type="java.lang.Integer">
+   <column name="ID_GRUPPOSEGNATURE" sql-type="INTEGER" unique="true"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one
+   class="net.bncf.uol2010.database.schema.servizi.entity.Fruibilita"
+   fetch="join" name="idFruibilita">
+   <column name="ID_FRUIBILITA"/>
+  </many-to-one>
+  <many-to-one
+   class="net.bncf.uol2010.database.schema.servizi.entity.Disponibilita"
+   fetch="join" name="idDisponibilita">
+   <column name="ID_DISPONIBILITA"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="segnaturaStart" type="java.lang.String">
+   <column length="255" name="SEGNATURA_START" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="segnaturaStop" type="java.lang.String">
+   <column length="255" name="SEGNATURA_STOP" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="segnaturaStartKey" type="java.lang.String">
+   <column length="255" name="SEGNATURA_STARTKEY" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="segnaturaStopKey" type="java.lang.String">
+   <column length="255" name="SEGNATURA_STOPKEY" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="natura" type="java.lang.String">
+   <column length="1" name="NATURA" sql-type="VARCHAR"/>
+  </property>
+  <property generated="never" lazy="false" name="note" type="java.lang.String">
+   <column name="NOTE"/>
+  </property>
+ </class>
+</hibernate-mapping>

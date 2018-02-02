@@ -35,7 +35,7 @@ public class UtenteDAO extends Navigator<Utente, String> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Utente> find(String idUtente, String cognome, String nome,
+	public List<Utente> find(String idUtente, String cognome, String nome, String email,
 			List<Order> orders) throws HibernateException, HibernateUtilException {
 		Criteria criteria = null;
 		List<Utente> result = null;
@@ -55,6 +55,9 @@ public class UtenteDAO extends Navigator<Utente, String> {
 			}
 			if (nome != null) {
 				criteria.add(Restrictions.eq("nome", nome));
+			}
+			if (email != null) {
+				criteria.add(Restrictions.eq("email", email));
 			}
 			paging(criteria);
 			if (orders != null) {

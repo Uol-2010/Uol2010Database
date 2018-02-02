@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class
+  name="net.bncf.uol2010.database.schema.servizi.entity.ControlliServizio" table="controlliservizio">
+  <composite-id mapped="false" unsaved-value="undefined">
+   <key-many-to-one
+    class="net.bncf.uol2010.database.schema.servizi.entity.Servizi"
+    column="ID_SERVIZI" name="idServizi"/>
+   <key-property name="sequenza" type="java.lang.Integer">
+    <column name="SEQUENZA" sql-type="INTEGER"/>
+   </key-property>
+  </composite-id>
+  <many-to-one
+   class="net.bncf.uol2010.database.schema.servizi.entity.Controllo" name="idControllo">
+   <column name="ID_CONTROLLO" sql-type="INTEGER"/>
+  </many-to-one>
+  <property name="bloccante" type="boolean">
+   <column name="BLOCCANTE" sql-type="INTEGER"/>
+  </property>
+  <property name="messaggio" type="string">
+   <column length="255" name="MESSAGGIO" sql-type="VARCHAR"/>
+  </property>
+ </class>
+</hibernate-mapping>

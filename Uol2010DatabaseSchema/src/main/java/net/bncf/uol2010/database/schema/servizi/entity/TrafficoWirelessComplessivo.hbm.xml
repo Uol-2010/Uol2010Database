@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1-feb-2018 11.01.20 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="net.bncf.uol2010.database.schema.servizi.entity.TrafficoWirelessComplessivo" table="TRAFFICOWIRELESSCOMPLESSIVO">
+        <id name="idUtente" type="net.bncf.uol2010.database.schema.servizi.entity.Utente">
+            <column name="IDUTENTE" />
+            <generator class="assigned" />
+        </id>
+        <property name="data" type="java.sql.Timestamp">
+            <column name="DATA" />
+        </property>
+        <property name="AcctInputOctets" type="java.lang.Long">
+            <column name="ACCTINPUTOCTETS" />
+        </property>
+        <property name="AcctOutputOctets" type="java.lang.Long">
+            <column name="ACCTOUTPUTOCTETS" />
+        </property>
+        <property name="AcctInputPackets" type="java.lang.Long">
+            <column name="ACCTINPUTPACKETS" />
+        </property>
+        <property name="AcctOutputPackets" type="java.lang.Long">
+            <column name="ACCTOUTPUTPACKETS" />
+        </property>
+        <property name="AcctSessionTime" type="java.lang.Long">
+            <column name="ACCTSESSIONTIME" />
+        </property>
+    </class>
+</hibernate-mapping>

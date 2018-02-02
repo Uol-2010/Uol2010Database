@@ -26,9 +26,6 @@
 		<property name="nome" type="java.lang.String">
 			<column name="NOME" />
 		</property>
-		<property name="sesso" type="java.lang.String">
-			<column name="SESSO" />
-		</property>
 		<property name="indirizzoIP" type="java.lang.String">
 			<column name="INDIRIZZOIP" />
 		</property>

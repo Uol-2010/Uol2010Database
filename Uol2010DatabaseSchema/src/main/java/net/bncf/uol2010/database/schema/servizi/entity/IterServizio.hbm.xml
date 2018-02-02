@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1-feb-2018 10.58.08 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="net.bncf.uol2010.database.schema.servizi.entity.IterServizio" table="ITERSERVIZIO">
+        <id name="idSevizi" type="net.bncf.uol2010.database.schema.servizi.entity.Servizi">
+            <column name="IDSEVIZI" />
+            <generator class="assigned" />
+        </id>
+        <property name="progIter" type="java.lang.Integer">
+            <column name="PROGITER" />
+        </property>
+        <many-to-one name="idStatoMovimenti" class="net.bncf.uol2010.database.schema.servizi.entity.StatoMovimento" fetch="join">
+            <column name="IDSTATOMOVIMENTI" />
+        </many-to-one>
+        <many-to-one name="idStoIter" class="net.bncf.uol2010.database.schema.servizi.entity.StatoIter" fetch="join">
+            <column name="IDSTOITER" />
+        </many-to-one>
+        <many-to-one name="idAttivita" class="net.bncf.uol2010.database.schema.servizi.entity.CodiceAttivita" fetch="join">
+            <column name="IDATTIVITA" />
+        </many-to-one>
+        <property name="stampaMovimento" type="java.lang.Boolean">
+            <column name="STAMPAMOVIMENTO" />
+        </property>
+        <property name="rinnovo" type="java.lang.Boolean">
+            <column name="RINNOVO" />
+        </property>
+    </class>
+</hibernate-mapping>

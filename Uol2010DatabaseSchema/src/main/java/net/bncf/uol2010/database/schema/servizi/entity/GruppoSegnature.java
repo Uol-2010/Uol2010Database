@@ -23,7 +23,7 @@ public class GruppoSegnature implements Serializable {
 
 	private Fruibilita idFruibilita;
 	
-	private Disponibilita idDidponibilita;
+	private Disponibilita idDisponibilita;
 	
 	private String segnaturaStart;
 	
@@ -74,15 +74,15 @@ public class GruppoSegnature implements Serializable {
 	/**
 	 * @return the idDidponibilita
 	 */
-	public Disponibilita getIdDidponibilita() {
-		return idDidponibilita;
+	public Disponibilita getIdDisponibilita() {
+		return idDisponibilita;
 	}
 
 	/**
 	 * @param idDidponibilita the idDidponibilita to set
 	 */
-	public void setIdDidponibilita(Disponibilita idDidponibilita) {
-		this.idDidponibilita = idDidponibilita;
+	public void setIdDisponibilita(Disponibilita idDisponibilita) {
+		this.idDisponibilita = idDisponibilita;
 	}
 
 	/**

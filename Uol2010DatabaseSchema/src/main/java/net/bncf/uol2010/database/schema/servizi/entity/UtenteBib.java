@@ -31,8 +31,6 @@ public class UtenteBib implements Serializable {
 
 	private String nome;
 
-	private String sesso;
-
 	private String indirizzoIP;
 	
 	/**
@@ -123,20 +121,6 @@ public class UtenteBib implements Serializable {
 	 */
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	/**
-	 * @return the sesso
-	 */
-	public String getSesso() {
-		return sesso;
-	}
-
-	/**
-	 * @param sesso the sesso to set
-	 */
-	public void setSesso(String sesso) {
-		this.sesso = sesso;
 	}
 
 	/**

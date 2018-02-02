@@ -1,5 +1,7 @@
 package net.bncf.uol2010.database.schema.servizi.dao;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -16,9 +18,10 @@ public class UtenteBibDAO extends GenericHibernateDAO<UtenteBib, Integer> {
 	public UtenteBibDAO() {
 	}
 
-	public UtenteBib findByLogin(String login) throws HibernateException, HibernateUtilException{
+	@SuppressWarnings("unchecked")
+	public List<UtenteBib> findByLogin(String login) throws HibernateException, HibernateUtilException{
 		Criteria criteria = null;
-		UtenteBib result = null;
+		List<UtenteBib> result = null;
 
 		try {
 			beginTransaction();
@@ -27,7 +30,7 @@ public class UtenteBibDAO extends GenericHibernateDAO<UtenteBib, Integer> {
 				criteria.add(Restrictions.eq("login", login));
 			}
 			paging(criteria);
-			result = (UtenteBib) criteria.uniqueResult();
+			result =  criteria.list();
 			commitTransaction();
 		} catch (HibernateException e) {
 			rollbackTransaction();

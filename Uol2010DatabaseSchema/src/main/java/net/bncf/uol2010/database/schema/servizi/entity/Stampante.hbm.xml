@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 1-feb-2018 11.01.20 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+ <class name="net.bncf.uol2010.database.schema.servizi.entity.Stampante" table="STAMPANTE">
+  <id name="id" type="java.lang.Integer">
+   <column name="ID_STAMPANTE"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one
+   class="net.bncf.uol2010.database.schema.servizi.entity.StampanteColore"
+   fetch="join" name="idStampanteColore">
+   <column name="ID_STAMPANTECOLORE"/>
+  </many-to-one>
+  <many-to-one
+   class="net.bncf.uol2010.database.schema.servizi.entity.StampanteModello"
+   fetch="join" name="idStampanteModello">
+   <column name="ID_STAMPANTEMODELLO"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="descrizione" type="java.lang.String">
+   <column name="DESCRIZIONE"/>
+  </property>
+  <property generated="never" lazy="false" name="codaStampante" type="java.lang.String">
+   <column name="CODASTAMPANTE"/>
+  </property>
+ </class>
+</hibernate-mapping>

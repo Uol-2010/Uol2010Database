@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22-ott-2014 16.00.31 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="net.bncf.uol2010.database.schema.servizi.entity.Carrello"
+		table="carrello">
+		<id name="id" type="java.lang.String">
+			<column name="ID_CARRELLO" />
+			<generator class="assigned" />
+		</id>
+		<many-to-one name="idUtenteBib"
+			class="net.bncf.uol2010.database.schema.servizi.entity.UtenteBib"
+			fetch="join">
+			<column name="ID_UTENTEBIB" />
+		</many-to-one>
+		<property name="dataCreazione" type="java.sql.Timestamp">
+			<column name="DATA_CREAZIONE" />
+		</property>
+		<property name="dataChiusura" type="java.sql.Timestamp">
+			<column name="DATA_CHIUSURA" />
+		</property>
+		<many-to-one name="idUtenteBibRiconsegna"
+			class="net.bncf.uol2010.database.schema.servizi.entity.UtenteBib"
+			fetch="join">
+			<column name="ID_UTENTEBIB_RICONSEGNA" />
+		</many-to-one>
+		<property name="dataRiconsegna" type="java.sql.Timestamp">
+			<column name="DATA_RICONSEGNA" />
+		</property>
+		<property name="dataChiusuraRiconsegna" type="java.sql.Timestamp">
+			<column name="DATA_CHIUSURARICONSEGNA" />
+		</property>
+		<property name="stato" type="java.lang.Integer">
+			<column name="STATO" />
+		</property>
+		<property name="dataPubblicazione" type="java.sql.Timestamp">
+			<column name="DATA_PUBBLICAZIONE" />
+		</property>
+		<property name="dataInvio" type="java.sql.Date">
+			<column name="DATA_INVIO" />
+		</property>
+		<property name="progInvio" type="java.lang.Integer">
+			<column name="PROG_INVIO" />
+		</property>
+	</class>
+</hibernate-mapping>

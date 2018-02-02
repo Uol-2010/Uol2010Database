@@ -15,7 +15,7 @@ import javax.persistence.Table;
  */
 @Entity
 @SuppressWarnings("serial")
-@Table(name="controlliservizio")
+@Table(name="controllo")
 public class Controllo implements Serializable {
 
 	@Id
