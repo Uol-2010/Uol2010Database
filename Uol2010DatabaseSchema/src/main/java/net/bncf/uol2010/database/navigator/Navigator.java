@@ -316,7 +316,7 @@ public class Navigator<T, ID extends Serializable> extends GenericHibernateDAO<T
 			convert.addChildElement(navigatore, nodes, "recFin", recFin, true);
 			convert.addChildElement(navigatore, nodes, "recTot", recTot, true);
 		} catch (SOAPException e) {
-			log.error(e);
+			log.error(e.getMessage(),e);
 		}
 
 		return navigatore;
