@@ -1,6 +1,7 @@
 package net.bncf.uol2010.database.schema.servizi.dao;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
 
 import mx.randalf.hibernate.GenericHibernateDAO;
@@ -9,7 +10,7 @@ import net.bncf.uol2010.database.schema.servizi.entity.Contatori;
 
 public class ContatoriDAO extends GenericHibernateDAO<Contatori, String> {
 
-	private Logger log = Logger.getLogger(ContatoriDAO.class);
+	private Logger log = LogManager.getLogger(ContatoriDAO.class);
 
 	public ContatoriDAO() {
 	}

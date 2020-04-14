@@ -8,7 +8,8 @@ import java.sql.Timestamp;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.Order;
@@ -28,7 +29,7 @@ import net.bncf.uol2010.database.schema.servizi.entity.Utente;
  */
 public class RichiesteDAO extends GenericHibernateDAO<Richieste, Integer> {
 
-	private Logger log = Logger.getLogger(RichiesteDAO.class);
+	private Logger log = LogManager.getLogger(RichiesteDAO.class);
 
 	/**
 	 * 
@@ -49,6 +50,16 @@ public class RichiesteDAO extends GenericHibernateDAO<Richieste, Integer> {
 		if (idStatoMovimenti != null){
 			idStatoMovimentis = new StatoMovimento[1];
 			idStatoMovimentis[0] = idStatoMovimenti;
+		}
+		return find(idUtente, idStatoMovimentis, idServizis, null, null, null, orders);
+	}
+
+	public List<Richieste> find(Utente idUtente, StatoMovimento[] idStatoMovimentis, Servizi idServizi, 
+			List<Order> orders) throws HibernateException, HibernateUtilException {
+		Servizi[] idServizis = null;
+		if (idServizi != null) {
+			idServizis = new Servizi[1];
+			idServizis[0] = idServizi;
 		}
 		return find(idUtente, idStatoMovimentis, idServizis, null, null, null, orders);
 	}
@@ -239,8 +250,8 @@ public class RichiesteDAO extends GenericHibernateDAO<Richieste, Integer> {
 	}
 
 
-	public Integer numScaduti(Utente idUtente, StatoMovimento[] statoMovimentos, GregorianCalendar dataFinEff) throws HibernateException, HibernateUtilException {
-		Integer ris = null;
+	public Long numScaduti(Utente idUtente, StatoMovimento[] statoMovimentos, GregorianCalendar dataFinEff) throws HibernateException, HibernateUtilException {
+		Long ris = null;
 		Criteria criteria = null;
 		
 		try {

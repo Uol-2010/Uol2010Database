@@ -4,7 +4,8 @@ import java.sql.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.ProjectionList;
@@ -18,7 +19,7 @@ import net.bncf.uol2010.database.schema.servizi.entity.Utente;
 
 public class IngressiDAO extends GenericHibernateDAO<Ingressi, Integer> {
 
-	private Logger log = Logger.getLogger(IngressiDAO.class);
+	private Logger log = LogManager.getLogger(IngressiDAO.class);
 
 	public IngressiDAO() {
 	}

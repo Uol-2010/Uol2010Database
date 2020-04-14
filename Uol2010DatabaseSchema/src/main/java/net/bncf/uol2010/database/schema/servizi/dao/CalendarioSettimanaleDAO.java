@@ -14,28 +14,28 @@ import org.hibernate.criterion.Restrictions;
 
 import mx.randalf.hibernate.GenericHibernateDAO;
 import mx.randalf.hibernate.exception.HibernateUtilException;
-import net.bncf.uol2010.database.schema.servizi.entity.CalendarioSospensioni;
+import net.bncf.uol2010.database.schema.servizi.entity.CalendarioSettimanale;
 import net.bncf.uol2010.database.schema.servizi.entity.Servizi;
 
 /**
  * @author massi
  *
  */
-public class CalendarioSospensioniDAO extends GenericHibernateDAO<CalendarioSospensioni, String> {
+public class CalendarioSettimanaleDAO extends GenericHibernateDAO<CalendarioSettimanale, String> {
 
-	private Logger  log = LogManager.getLogger(CalendarioSospensioniDAO.class);
+	private Logger  log = LogManager.getLogger(CalendarioSettimanaleDAO.class);
 
 	/**
 	 * 
 	 */
-	public CalendarioSospensioniDAO() {
+	public CalendarioSettimanaleDAO() {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<CalendarioSospensioni> find(Servizi idServizi, Integer giorno, 
-			Integer mese, List<Order> orders) throws HibernateException, HibernateUtilException {
+	public List<CalendarioSettimanale> find(Servizi idServizi, Integer giornoSettimanale, 
+			List<Order> orders) throws HibernateException, HibernateUtilException {
 		Criteria criteria = null;
-		List<CalendarioSospensioni> result = null;
+		List<CalendarioSettimanale> result = null;
 
 		try {
 			beginTransaction();
@@ -43,15 +43,8 @@ public class CalendarioSospensioniDAO extends GenericHibernateDAO<CalendarioSosp
 			if (idServizi != null) {
 				criteria.add(Restrictions.eq("idServizi", idServizi));
 			}
-			if (giorno != null) {
-				criteria.add(
-						Restrictions.and(
-								Restrictions.ge("giornoInizio", giorno),
-								Restrictions.le("giornoFine", giorno)
-								));
-			}
-			if (mese != null) {
-				criteria.add(Restrictions.eq("mese", mese));
+			if (giornoSettimanale != null) {
+				criteria.add(Restrictions.eq("giornoSettimanale", giornoSettimanale));
 			}
 			if (orders != null) {
 				for (Order order : orders) {

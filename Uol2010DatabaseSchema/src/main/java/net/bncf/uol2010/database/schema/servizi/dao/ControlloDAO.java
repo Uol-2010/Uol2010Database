@@ -5,7 +5,8 @@ package net.bncf.uol2010.database.schema.servizi.dao;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.Order;
@@ -21,7 +22,7 @@ import net.bncf.uol2010.database.schema.servizi.entity.Controllo;
  */
 public class ControlloDAO extends GenericHibernateDAO<Controllo, Integer> {
 
-	Logger log = Logger.getLogger(ControlloDAO.class);
+	private Logger log = LogManager.getLogger(ControlloDAO.class);
 
 	/**
 	 * 

@@ -12,7 +12,8 @@ import java.util.Vector;
 import javax.xml.soap.SOAPException;
 
 import org.apache.axis.message.MessageElement;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import mx.randalf.converter.text.ConvertToURI;
 import mx.randalf.converter.text.ConvertToUTF8;
@@ -23,7 +24,7 @@ public class Navigator<T, ID extends Serializable> extends GenericHibernateDAO<T
 	/**
 	 * Questa variabile viene utilizzata per eseguire lo log delle applicazioni
 	 */
-	private static Logger log = Logger.getLogger(Navigator.class);
+	private static Logger log = LogManager.getLogger(Navigator.class);
 
 	/**
 	 * Questa Variabile viene utilizzata per indicare la posizione delle

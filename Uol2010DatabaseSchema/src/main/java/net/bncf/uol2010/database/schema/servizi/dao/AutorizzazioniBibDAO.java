@@ -3,7 +3,8 @@
  */
 package net.bncf.uol2010.database.schema.servizi.dao;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.criterion.Restrictions;
@@ -18,7 +19,7 @@ import net.bncf.uol2010.database.schema.servizi.entity.AutorizzazioniBib;
  */
 public class AutorizzazioniBibDAO extends GenericHibernateDAO<AutorizzazioniBib, String> {
 
-	private Logger log = Logger.getLogger(AutorizzazioniBibDAO.class);
+	private Logger log = LogManager.getLogger(AutorizzazioniBibDAO.class);
 
 	/**
 	 * 
