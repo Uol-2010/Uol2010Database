@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>net.bncf.uol2010.database</groupId>
 	<artifactId>Uol2010Database</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version><!-- 1.0.0 -->
 	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -13,6 +13,7 @@
 	<modules>
 		<module>Uol2010DatabaseSchema</module>
 	</modules>
+<!-- 
         <distributionManagement>
                 <repository>
                         <id>mvn-bncf</id>
@@ -29,4 +30,5 @@
                         </snapshots>
                 </repository>
         </repositories>
+ -->        
 </project>

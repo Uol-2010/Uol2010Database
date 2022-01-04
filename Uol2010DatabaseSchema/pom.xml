@@ -4,10 +4,12 @@
 	<parent>
 		<groupId>net.bncf.uol2010.database</groupId>
 		<artifactId>Uol2010Database</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version><!-- 1.0.0 -->
 	</parent>
 	<groupId>net.bncf.uol2010.database.schema</groupId>
 	<artifactId>Uol2010DatabaseSchema</artifactId>
+	<version>2.0.3</version><!-- 2.0.2 -->
+<!-- 
 	<distributionManagement>
 		<repository>
 			<id>mvn-bncf</id>
@@ -24,16 +26,17 @@
 			</snapshots>
 		</repository>
 	</repositories>
+ -->	
 	<dependencies>
 		<dependency>
 			<groupId>mx.randalf.hibernate</groupId>
 			<artifactId>RandalfHibernate</artifactId>
-			<version>2.0.2</version>
+			<version>2.0.3</version><!-- 2.0.2 -->
 		</dependency>
 		<dependency>
 			<groupId>mx.randalf.converter.text</groupId>
 			<artifactId>RandalfConverterText</artifactId>
-			<version>2.0.0</version>
+			<version>2.0.1</version><!-- 2.0.0 -->
 		</dependency>
 		<dependency>
 			<groupId>axis</groupId>
@@ -41,7 +44,6 @@
 			<version>1.4</version>
 		</dependency>
 	</dependencies>
-	<version>2.0.2</version>
 	<build>
 		<resources>
 			<resource>
